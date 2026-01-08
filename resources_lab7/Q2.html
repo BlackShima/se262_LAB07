@@ -1,109 +1,76 @@
 <!DOCTYPE html>
 <html
-  lang="en"
   xmlns:mso="urn:schemas-microsoft-com:office:office"
   xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
 >
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Add code here -->>
-     <title>New Life in Weeks numbers.</title>
-      <link rel="stylesheet" href="style.css" />
-
+    <title></title>
   </head>
+
   <body>
-    <button type="button" id="ageButton" onclick="computeAge()">
-      Compute your life time!
-    </button>
-    <button type="button" id="colorButton" onclick="changeColor()">
-      Change color!
-    </button>
+    <p>Lab 0ุ6 - Higher order functions</p>
+
+    <ul></ul>
 
     <script>
-      function computeAge() {
-        // DO NOT modify any code in this function
-        var currentAge = prompt("What is your current age?");
-        showOnWeb(currentAge, lifeInWeeks);
-      }
+      function every(array, predicate) {
+        // Function "every()" takes TWO parameters
+        // - “array” as an array and
+        // - “predicate” as a callback function.
 
-      // 1. Copy the "lifeInWeeks" function from lifeInWeeks.html
-      const lifeInWeeks = {
-        daysInYear: 365,
-        weeksInYear: 52,
-        monthsInYear: 12,
-        maxAge: 90,
+        // Higher-order function "every()" calls the callback function "predicate()"
+        // to check if the element is TRUE/FALSE by the logic of the callback function
 
-        // Method to calculate time left
-        calculateTimeLeft(currentAge) {
-          const yearsLeft = this.maxAge - currentAge;
-          return {
-            days: yearsLeft * this.daysInYear,
-            weeks: yearsLeft * this.weeksInYear,
-            months: yearsLeft * this.monthsInYear,
-          };
-        },
-        displayTimeLeft(currentAge) {
-        const timeLeft = this.calculateTimeLeft(currentAge);
-        alert(
-          `You have ${timeLeft.days} days, ${timeLeft.weeks} weeks, and ${timeLeft.months} months left.`
-        );
-      }
+        // "every()" will return TRUE if all element of "array" are TURE by the logic of callback function "predicate()"
 
-      };
+        // Do NOT modify any code here.
 
-       const currentAge = parseInt(prompt("What is your current age?"), 10);
+        for (let element of array) {
+          if (!predicate(element)) return false;
+        }
+        return true;
 
-       if (
-         !isNaN(currentAge) &&
-         currentAge >= 0 &&
-         currentAge <= lifeInWeeks.maxAge
-       ) {
-         lifeInWeeks.displayTimeLeft(currentAge);
-       } else {
-         alert("Please enter a valid age between 0 and 90.");
-       }
 
-      // 2. Create the showOnWeb() function with the following specification
-      // 2.1 [1 point] Locate the DOM node of 'body' preparing for the HTML changes
-      // 2.2 [2 point] Call the callback function of "lifeInweeks" and prepare the text to display
-      //     in the format “You have x days, y weeks, and z months left.”
-      // 2.3 [2 point] Add a new paragraph node as a child of 'body' node to display the remaining life time. [Hint: use appendChild()]
-      // 2.4 [2 point] Add a new paragraph node before the node of 2.3 to display as "My current age is xx." ; 
-      // xx is the age received from prompt box [Hint: use insertBefore() ]
-
-      // In the next round of input button click, information of the previous round should be removed
-      // 2.5 [2 point] Add code to remove all nodes of paragraphs from the body [Hint: using forEach(), removeChild()]
-
-      function showOnWeb(age, lifeInWeeks) {
-        
-        const bodyNode = document.querySelector("body");
-
-        const existingParagraphs = bodyNode.querySelectorAll("p");
-        existingParagraphs.forEach((p) => bodyNode.removeChild(p));
-
-        const timeLeft = lifeInWeeks.calculateTimeLeft(age);
-        const timeLeftText = `You have ${timeLeft.days} days, ${timeLeft.weeks} weeks, and ${timeLeft.months} months left.`;
-
-        const ageParagraph = document.createElement("p");
-        ageParagraph.textContent = `My current age is ${age}.`;
-        bodyNode.appendChild(ageParagraph);
-
-        const timeLeftParagraph = document.createElement("p");
-        timeLeftParagraph.textContent = timeLeftText;
-        bodyNode.appendChild(timeLeftParagraph);
 
       }
 
-      // 3. Create the changeColor() function with the following specification
-      // 3.1 changeColor() will be called when user clicks the button id:"colorButton".
-      // 3.2 link the html file with external 'style.css'.
-      // 3.3 [2 points] The class of "blueBG" should be toggled to change background color. [Hint: use classList]
-     
-      function changeColor() {
-        document.body.classList.toggle("blueBG");
+      function isLessTen(n) {
+        // 1. Modify isLessTen which returns TRUE if 'n' is LESS than 10
+        // This function will be used as a callback function for 'every()' function
+
+
+
+
+
+
       }
+
+      function isOverTen(n) {
+        // 2. Modify isOverTen which returns TRUE if 'n' is MORE than 10
+        // This function will also be used as a callback function for 'every()' function
+
+
+
+
+
+
+      }
+
+      // 3. Test the calling of function 'every' by specify an "array" and a "predicate" function
+      
+      // 3.1 Use "isLessTen" function to pass in as input for 'predicate' parameter.
+      //  Use "array" sets of [1, 3, 5], [2, 4, 16] and [21, 12, 55] for each call of 'every()' function
+
+      console.log(every([1, 3, 5], ....... ));
+  
+      console.log(every([2, 4, 16], ....... ));
+
+      console.log(every([21, 12, 55], ....... ));
+
+
+      // 3.2 Use "isOverTen" function to pass in as input for 'predicate' parameter.
+      //  Use "array" sets of [1, 3, 5], [2, 4, 16] and [21, 12, 55] for each call of 'every()' function
+
 
 
 

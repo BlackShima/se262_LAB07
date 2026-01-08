@@ -1,26 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Life in Weeks</title>
 </head>
 <body>
     <script>
-        //[1 point] 1. Create a var that stores the name which is asked from user via the prompt box
-        let userName = prompt("What is your name?");
+        // Object to calculate and display time left
+        const lifeCalculator = {
+            daysInYear: 365,
+            weeksInYear: 52,
+            monthsInYear: 12,
+            maxAge: 90,
 
+            // Method to calculate time left
+            calculateTimeLeft(currentAge) {
+                const yearsLeft = this.maxAge - currentAge;
+                return {
+                    days: yearsLeft * this.daysInYear,
+                    weeks: yearsLeft * this.weeksInYear,
+                    months: yearsLeft * this.monthsInYear
+                };
+            },
 
+            // Method to display the time left
+            displayTimeLeft(currentAge) {
+                const timeLeft = this.calculateTimeLeft(currentAge);
+                alert(`You have ${timeLeft.days} days, ${timeLeft.weeks} weeks, and ${timeLeft.months} months left.`);
+            }
+        };
 
-        //[1 point] 2. Greet the user using an alert box.
+        // Prompt user for current age
+        const currentAge = parseInt(prompt("What is your current age?"), 10);
 
-        alert("Hello, " + userName + "!");
-
-
-
-
-        
+        // Check if the input is valid
+        if (!isNaN(currentAge) && currentAge >= 0 && currentAge <= lifeCalculator.maxAge) {
+            lifeCalculator.displayTimeLeft(currentAge);
+        } else {
+            alert("Please enter a valid age between 0 and 90.");
+        }
     </script>
 </body>
 </html>
