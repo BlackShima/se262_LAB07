@@ -7,6 +7,8 @@
 </head>
 <body>
     <script>
+        
+        const currentAge = parseInt(prompt("What is your current age?"), 10);
         // Object to calculate and display time left
         const lifeCalculator = {
             daysInYear: 365,
@@ -32,10 +34,11 @@
         };
 
         // Prompt user for current age
-        const currentAge = parseInt(prompt("What is your current age?"), 10);
+        
 
         // Check if the input is valid
         if (!isNaN(currentAge) && currentAge >= 0 && currentAge <= lifeCalculator.maxAge) {
+           
             lifeCalculator.displayTimeLeft(currentAge);
         } else {
             alert("Please enter a valid age between 0 and 90.");
